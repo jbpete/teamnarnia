@@ -11,7 +11,7 @@ Destinations.init(
         sequelize,
         timestamps: true,
         underscored: false,
-        modelName: 
+        modelName: 'destinations'
     }
 
 );
