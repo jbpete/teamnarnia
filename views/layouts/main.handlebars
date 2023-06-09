@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed Me</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="money">💸</span>
+        <a href="/">Welcome to Feed Me</a>
+      </h1>
+      <h2>Feed Me is your one-stop-shop for unique recipe discovery, meal planning, and grocery list creation. Select a destination below to get started.</h2>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="">Home</a> 
+        <a href="">All Recipes</a> 
+        <a href="">My Shopping List</a> 
+        <a href="">Add a Recipe</a> 
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+        <section class="card">
+            <a href="">
+            <header>Not sure what you want to eat? Let us choose!</header>
+            <p></p>
+            <button id="auto-feed">You Feed Me!</button>
+            <div class="card-body">
+            <img src="/images/{{filename}}" alt="{{description}}">
+            </div>
+            </a>
+        </section>
+    </main>
+    <footer>
+      <a href="">Contact Us</a>
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/public/js/login.js"></script>
+  {{/if}}
+</body>
