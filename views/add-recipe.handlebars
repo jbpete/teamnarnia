@@ -1,0 +1,27 @@
+<h3>Add a Recipe</h3>
+<section>
+    <form>
+        <label for="name">Recipe name:</label><br>
+        <input type="text" id="name" name="recipe-name"><br>
+        <label for="instructions">Instructions:</label><br>
+        <input type="text" id="instructions" name="instructions">
+        {{!add input for ingredients?}}
+        Cuisine:
+        <input type="radio" id="american" name="cuisine" value="American">
+        <label for="american">American</label><br>
+        <input type="radio" id="asian" name="cuisine" value="Asian">
+        <label for="asian">Asian</label><br>
+        <input type="radio" id="indian" name="cuisine" value="Indian">
+        <label for="indian">Indian</label>
+        <input type="radio" id="italian" name="cuisine" value="Italian">
+        <label for="italian">Italian</label>
+        <input type="radio" id="mediterranean" name="cuisine" value="Mediterranean">
+        <label for="mediterranean">Mediterranean</label>
+        <input type="radio" id="mexican" name="cuisine" value="Mexican">
+        <label for="mexican">Mexican</label>
+        <label for="name">Serving size:</label><br>
+        <input type="text" id="serving" name="serving-size"><br>
+        {{!add input to upload photo?}}
+    </form>
+    <button>Add Recipe</button>
+</section>
