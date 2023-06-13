@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Recipes } = require('../models');
 const withAuth = require('../utils/auth');
+const fetch = require('node-fetch');
 
 router.get('/', (req, res) => {
     try {
@@ -11,24 +12,18 @@ router.get('/', (req, res) => {
     });
 
 
-router.get('/recipes', async (req, res) => {
-  try {
-    const recipeData = await Recipes.findAll(req.body, {
-      include: [
-        {
-          model: Recipes,
-          attributes: ['name', 'servings'],
-        },
-      ],
-    });
+
+    router.get('/recipes/:cuisine', async (req, res) => {
     
-        const recipe = recipeData.get({ plain: true });
-    
-        res.render('recipes', {
-          ...recipe
-        });
+    let url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.params.cuisine}&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
+      try {
+    const response = await fetch(url)
+    const data = await response.json()
+    //console.log(data)
+    res.render("recipes", {data} )
+
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
       }
     });
 
