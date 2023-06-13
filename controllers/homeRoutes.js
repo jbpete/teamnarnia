@@ -27,26 +27,17 @@ router.get('/', (req, res) => {
       }
     });
 
-router.get('/recipes/:id', async (req, res) => {
+router.get('/recipe/:id', async (req, res) => {
+  let url = `https://api.spoonacular.com/recipes/${req.params.id}/information&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
   try {
-    const recipeData = await Recipes.findByPk(req.params.id, {
-      include: [
-        {
-          model: Recipes,
-          attributes: ['name', 'servings', 'instructions', 'ingredients'],
-        },
-      ],
-    });
-        
-      const recipe = recipeData.get({ plain: true });
-        
-        res.render('one-recipe', {
-          ...recipe
-        });
-        } catch (err) {
-          res.status(500).json(err);
-        }
-        });
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    res.render("one-recipe", {data} )
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
     
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {

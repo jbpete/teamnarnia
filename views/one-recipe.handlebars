@@ -1,19 +1,15 @@
-<section class="card">
-  <a href="/recipe/{{id}}">
-    <header>{{recipe.name}}</header>
-
-    <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{description}}">
-      <h3>Ingredients</h3>
-      <p>{{recipe.ingredients}}</p>
-      <h3>Directions</h3>
-      <p>{{recipe.directions}}</p>
-    </div>
-  </a>
-<label class="add-fav">
-  <input type="checkbox" />
-  <i class="icon-heart">
+<section class="container">
+  <section class="flex-row justify-center">
+    {{#each data.results as |recipe|}}
+    {{> recipe-details}}
+    {{/each}}
+  </section>
+</section>
+<section class="favorite">
+  <label class="add-fav">
+    <input type="checkbox" />
+    <i class="icon-heart">
     <i class="icon-plus-sign"></i>
-  </i>
-</label>
+    </i>
+  </label>
 </section>
