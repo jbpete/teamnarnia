@@ -5,6 +5,14 @@
     <div class="card-body">
       <img src={{image}} alt="">
       <p>Serves: {{servings}}</p>
+      {{#if extendedIngredients}}
+      <p>Ingredients:</p>
+      <ul>
+        <li>{{extendedIngredients.original}}</li>
+      </ul>
+      <p>Instructions:</p>
+      <p>{{instructions}}</p>
+      {{/if}}
     </div>
   </a>
 </section>
