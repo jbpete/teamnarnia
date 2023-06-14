@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 
-//router.use('/users', userRoutes);
+// router.use('/users', userRoutes);
+router.use('/users', userRoutes);
 
-apiKey = "7c5341c2e1a248c391cbc63889b96f6f"
+// apiKey = "7c5341c2e1a248c391cbc63889b96f6f"
 
 // const test_image = document.getElementById('test2')
 // const test_iname = document.getElementById('test1')
