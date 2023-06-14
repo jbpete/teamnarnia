@@ -14,8 +14,9 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the shopping list page
-        document.location.reload();
+        // If successful, reload the page they were on
+        window.location.reload();
+        console.log('test');
         // document.location.replace('/');
       } else {
         alert(response.statusText);
@@ -38,7 +39,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.reload();
+        window.location.reload();
+        console.log('test');
         // document.location.replace('/shopping-list');
       } else {
         alert(response.statusText);

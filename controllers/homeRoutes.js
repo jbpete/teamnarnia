@@ -11,29 +11,45 @@ router.get('/', (req, res) => {
       }
     });
 
-
-
-    router.get('/recipes/:cuisine', async (req, res) => {
-    
+router.get('/recipes/:cuisine', withAuth, async (req, res) => {
     let url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.params.cuisine}&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
       try {
+        const userData = await User.findAll({
+          attributes: { exclude: ['password'] },
+          // order: [['name, ASC'],]
+      }); 
+    const user = userData.get({ plain: true });
     const response = await fetch(url)
     const data = await response.json()
     //console.log(data)
-    res.render("recipes", {data} )
+    res.render("recipes", {
+      data,
+      user,
+    logged_in: true
+  });
 
       } catch (err) {
         res.status(500).json(err.message);
       }
     });
 
-router.get('/recipe/:id', async (req, res) => {
+router.get('/recipe/:id', withAuth, async (req, res) => {
   let url = `https://api.spoonacular.com/recipes/${req.params.id}/information&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
   try {
+    const userData = await User.findAll({
+    attributes: { exclude: ['password'] },
+            order: [['name, ASC'],]
+        });
+    const user = userData.get({ plain: true });
     const response = await fetch(url)
     const data = await response.json()
     console.log(data)
-    res.render("one-recipe", {data} )
+
+    res.render("one-recipe", {
+      data,
+      user,
+      logged_in: true
+    });
   } catch (err) {
       res.status(500).json(err);
   }
@@ -50,15 +66,14 @@ router.get('/login', (req, res) => {
   
 router.get('/shopping-list', withAuth, async (req, res) => {
     try {
-        const userData = await User.findAll({
-            attributes: { exclude: ['password'] },
-            order: [['name, ASC'],]
-        })
-      
-    const users = userData.map((project) => project.get({ plain: true }));
+      const userData = await User.findAll({
+        attributes: { exclude: ['password'] },
+                order: [['name, ASC'],]
+            });
+        const user = userData.get({ plain: true });
   
     res.render('shopping-list', {
-      users,
+      user,
       logged_in: req.session.logged_in,
     });
     } catch (err) {
@@ -73,10 +88,10 @@ router.get('/shopping-list', withAuth, async (req, res) => {
             order: [['name, ASC'],]
         })
         
-    const users = userData.map((project) => project.get({ plain: true }));
+        const user = userData.get({ plain: true });
     
     res.render('add-recipe', {
-      users,
+      user,
       logged_in: req.session.logged_in,
     });
     } catch (err) {
@@ -91,10 +106,10 @@ router.get('/shopping-list', withAuth, async (req, res) => {
           order: [['name, ASC'],]
       })
           
-      const users = userData.map((project) => project.get({ plain: true }));
+      const user = userData.get({ plain: true });
       
       res.render('saved-recipes', {
-        users,
+        user,
         logged_in: req.session.logged_in,
       });
       } catch (err) {
