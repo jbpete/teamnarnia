@@ -15,7 +15,8 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the shopping list page
-        document.location.replace('/shopping-list');
+        document.location.reload();
+        // document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -37,7 +38,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/shopping-list');
+        document.location.reload();
+        // document.location.replace('/shopping-list');
       } else {
         alert(response.statusText);
       }
