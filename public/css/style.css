@@ -8,7 +8,24 @@
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
   }
-  
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+
+  }
+
+  .main-header {
+    color: var(--light);
+  }
+
+  .cuisine-header {
+    color: var(--primary);
+    align-content: center; 
+  }
+
   body {
     font-family: Arial;
     margin: 0;
@@ -32,7 +49,6 @@
     padding: 40px;
     text-align: center;
     background: var(--primary);
-    color: var(--light);
   }
   
   main {
