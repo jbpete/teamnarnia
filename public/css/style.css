@@ -55,6 +55,14 @@
     gap: 10px;
   }
 
+  .card-container-2 {
+    display: grid;
+    justify-items: center;    
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+
   .card {
     border: none;
     justify-items: center;
@@ -124,6 +132,22 @@
     margin-left: 345px;
   }
 
+  #logout {
+    color: var(--tertiary);
+    color: var(--dark);
+    font-size: 16px;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--secondary);
+    border: none;
+  }
+
+  #logout:hover {
+    color: var(--secondary);
+    background-color: var(--light);
+  }
+
   .btn:hover {
     color: var(--tertiary);
     background-color: var(--secondary);
@@ -146,7 +170,17 @@
     object-fit: cover;
 }
 
+.food-img-2 {
+  width:  300px;
+  height: 200px;
+  object-fit: cover;
+}
+
 .food-img:hover {
+  opacity: 0.5;
+}
+
+.food-img-2:hover {
   opacity: 0.5;
 }
 
@@ -172,6 +206,17 @@ h4 {
     background-color: var(--light);
     color: var(--dark);
   }
+
+  .recipe-header {
+    color: var(--tertiary);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    background-color: var(--primary);
+    padding: 0.625rem;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
   
   .login-card {
     margin: 0 0 20px 0;
@@ -191,7 +236,3 @@ h4 {
     text-align: center;
     font-weight: bold;
   }
-  
-/*   
-  LAYOUT */
- 
