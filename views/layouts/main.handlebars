@@ -10,14 +10,11 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <img src="/public/assets/Copy of Orange Bold Italics Chicken Fast Food Logo.png" alt="Feed Me Logo" />
-      <h1 class="main-header">
-        Welcome to Feed Me
-      </h1>
-      <h2 class="main-header">Feed Me is your one-stop-shop for unique recipe discovery, meal planning, and grocery list creation. Select a destination below to get started.</h2>
-      <nav>
-        <!-- Conditionally render login or logout links -->
+    <header class="display-flex justify-space-between align-center p-1">
+      <img class="logo" src="/assets/Feed Me Logo_wide.png" alt="Feed Me Logo" />
+     </header>   
+    <nav class="border-0">
+     <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="">Home</a> 
         <a href="">All Recipes</a> 
@@ -27,8 +24,8 @@
         {{else}}
         <a href="/login">Login</a>
         {{/if}}
-      </nav>
-    </header>
+      </nav>   
+    {{!-- <h2 class="sub-header">Feed Me is your one-stop-shop for unique recipe discovery, meal planning, and grocery list creation. Select a destination below to get started.</h2> --}}
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
@@ -39,7 +36,7 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{!-- {{#if logged_in}}
+ {{#if logged_in}}
   <script src="js/login.js"></script>
-  {{/if}} --}}
+  {{/if}}
 </body>
