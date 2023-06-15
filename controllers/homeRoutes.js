@@ -15,17 +15,18 @@ router.get('/recipes/:cuisine', withAuth, async (req, res) => {
     let url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.params.cuisine}&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
       try {
         const userData = await User.findAll({
-          attributes: { exclude: ['password'] },
-          // order: [['name, ASC'],]
+          attributes: { exclude: ['password'] }
       }); 
-    const user = userData.get({ plain: true });
+    
+    const users = userData.map((project) => project.get({ plain: true }));
     const response = await fetch(url)
     const data = await response.json()
+
     //console.log(data)
     res.render("recipes", {
       data,
-      user,
-    logged_in: true
+      users,
+      logged_in: true
   });
 
       } catch (err) {
@@ -37,17 +38,16 @@ router.get('/recipe/:id', withAuth, async (req, res) => {
   let url = `https://api.spoonacular.com/recipes/${req.params.id}/information&apiKey=7c5341c2e1a248c391cbc63889b96f6f`
   try {
     const userData = await User.findAll({
-    attributes: { exclude: ['password'] },
-            order: [['name, ASC'],]
+    attributes: { exclude: ['password'] }
         });
-    const user = userData.get({ plain: true });
+    const users = userData.map((project) => project.get({ plain: true }));
     const response = await fetch(url)
     const data = await response.json()
     console.log(data)
 
     res.render("one-recipe", {
       data,
-      user,
+      users,
       logged_in: true
     });
   } catch (err) {
@@ -67,13 +67,12 @@ router.get('/login', (req, res) => {
 router.get('/shopping-list', withAuth, async (req, res) => {
     try {
       const userData = await User.findAll({
-        attributes: { exclude: ['password'] },
-                order: [['name, ASC'],]
+        attributes: { exclude: ['password'] }
             });
-        const user = userData.get({ plain: true });
+            const users = userData.map((project) => project.get({ plain: true }));
   
     res.render('shopping-list', {
-      user,
+      users,
       logged_in: req.session.logged_in,
     });
     } catch (err) {
@@ -84,14 +83,13 @@ router.get('/shopping-list', withAuth, async (req, res) => {
   router.get('/add-recipe', withAuth, async (req, res) => {
     try {
         const userData = await User.findAll({
-            attributes: { exclude: ['password'] },
-            order: [['name, ASC'],]
+            attributes: { exclude: ['password'] }
         })
         
-        const user = userData.get({ plain: true });
+        const users = userData.map((project) => project.get({ plain: true }));
     
     res.render('add-recipe', {
-      user,
+      users,
       logged_in: req.session.logged_in,
     });
     } catch (err) {
@@ -102,14 +100,13 @@ router.get('/shopping-list', withAuth, async (req, res) => {
   router.get('/saved-recipes', withAuth, async (req, res) => {
     try {
       const userData = await User.findAll({
-          attributes: { exclude: ['password'] },
-          order: [['name, ASC'],]
-      })
+          attributes: { exclude: ['password'] }      
+        })
           
-      const user = userData.get({ plain: true });
+        const users = userData.map((project) => project.get({ plain: true }));
       
       res.render('saved-recipes', {
-        user,
+        users,
         logged_in: req.session.logged_in,
       });
       } catch (err) {
