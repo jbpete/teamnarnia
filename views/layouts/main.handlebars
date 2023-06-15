@@ -13,19 +13,18 @@
     <header class="display-flex justify-space-between align-center p-1">
       <img class="logo" src="/assets/Feed Me Logo_wide.png" alt="Feed Me Logo" />
      </header>   
-    <nav class="border-0">
+    <nav>
      <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="">Home</a> 
-        <a href="">All Recipes</a> 
-        <a href="">My Shopping List</a> 
-        <a href="">Add a Recipe</a> 
-        <button class="no-button" id="logout">logout</button>
+        <a href="/">Home</a> 
+        <a href="/recipes">All Recipes</a> 
+        <a href="/shopping-list">My Shopping List</a> 
+        <a href="/add-recipe">Add a Recipe</a> 
+        <button id="logout">logout</button>
         {{else}}
         <a href="/login">Login</a>
         {{/if}}
       </nav>   
-    {{!-- <h2 class="sub-header">Feed Me is your one-stop-shop for unique recipe discovery, meal planning, and grocery list creation. Select a destination below to get started.</h2> --}}
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
