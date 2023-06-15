@@ -39,7 +39,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        window.location.reload();
+        location.reload();
         console.log('test');
         // document.location.replace('/shopping-list');
       } else {
