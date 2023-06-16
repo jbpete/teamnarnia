@@ -1,8 +1,21 @@
 <section class="container">
   <section class="flex-row justify-center">
-    {{#each data.results as |recipe|}}
-    {{> recipe-details}}
-    {{/each}}
+    <section class="card">
+  <a href="/recipe/{{data.id}}">
+    <header class="recipe-header">{{data.title}}</header>
+    <div class="card-body">
+      <img class="food-img-2" src={{data.image}} alt="">
+      {{#if extendedIngredients}}
+      <p>Ingredients:</p>
+      <ul>
+        <li>{{data.extendedIngredients.original}}</li>
+      </ul>
+      <p>Instructions:</p>
+      <p>{{data.instructions}}</p>
+      {{/if}}
+    </div>
+  </a>
+</section>
   </section>
 </section>
 <section class="favorite">

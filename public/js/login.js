@@ -15,9 +15,9 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, reload the page they were on
-        window.location.reload();
+        // window.location.reload();
         console.log('test');
-        // document.location.replace('/');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }

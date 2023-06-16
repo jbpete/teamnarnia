@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 
 router.get('/recipes/:cuisine', withAuth, async (req, res) => {
-    let url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.params.cuisine}&${process.env.API_KEY}`
+    let url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.params.cuisine}&apiKey=${process.env.API_KEY}`
       try {
         const userData = await User.findAll({
           attributes: { exclude: ['password'] }
@@ -36,7 +36,7 @@ router.get('/recipes/:cuisine', withAuth, async (req, res) => {
     });
 
 router.get('/recipe/:id', withAuth, async (req, res) => {
-  let url = `https://api.spoonacular.com/recipes/${req.params.id}/information?${process.env.API_KEY}`
+  let url = `https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.API_KEY}`
   try {
     const userData = await User.findAll({
     attributes: { exclude: ['password'] }
@@ -57,7 +57,7 @@ router.get('/recipe/:id', withAuth, async (req, res) => {
 });
    
 router.get('/recipe/random', withAuth, async (req, res) => {
-  let randomURL = `https://api.spoonacular.com/recipes/648084/information?${process.env.API_KEY}`
+  let randomURL = `https://api.spoonacular.com/recipes/648084/information?apiKey=${process.env.API_KEY}`
   try {
     const userData = await User.findAll({
     attributes: { exclude: ['password'] }
