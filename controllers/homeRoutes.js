@@ -90,27 +90,27 @@ router.get('/login', (req, res) => {
       res.render('login');
     }); 
   
-router.get('/shopping-list', withAuth, async (req, res) => {
-    try {
-      const userData = await User.findAll({
-        attributes: { exclude: ['password'] }
-            });
-            const users = userData.map((project) => project.get({ plain: true }));
+// router.get('/shopping-list', withAuth, async (req, res) => {
+//     try {
+//       const userData = await User.findAll({
+//         attributes: { exclude: ['password'] }
+//             });
+//             const users = userData.map((project) => project.get({ plain: true }));
   
-    res.render('shopping-list', {
-      users,
-      logged_in: req.session.logged_in,
-    });
-    } catch (err) {
-        res.status(500).json(err);
-      }
-    });
+//     res.render('shopping-list', {
+//       users,
+//       logged_in: req.session.logged_in,
+//     });
+//     } catch (err) {
+//         res.status(500).json(err);
+//       }
+//     });
 
   router.get('/add-recipe', withAuth, async (req, res) => {
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] }
-        })
+        });
         
         const users = userData.map((project) => project.get({ plain: true }));
     
@@ -127,9 +127,12 @@ router.get('/shopping-list', withAuth, async (req, res) => {
     try {
       const userData = await User.findAll({
           attributes: { exclude: ['password'] }      
-        })
+        });
           
         const users = userData.map((project) => project.get({ plain: true }));
+        const response = await fetch(randomURL)
+        const data = await response.json()
+        console.log(data)
       
       res.render('saved-recipes', {
         users,
