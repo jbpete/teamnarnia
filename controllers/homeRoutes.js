@@ -23,7 +23,7 @@ router.get('/recipes/:cuisine', withAuth, async (req, res) => {
     const response = await fetch(url)
     const data = await response.json()
 
-    //console.log(data)
+    console.log(data)
     res.render("recipes", {
       data,
       users,
@@ -56,7 +56,7 @@ router.get('/recipe/:id', withAuth, async (req, res) => {
   }
 });
    
-router.get('/recipe/random', withAuth, async (req, res) => {
+router.get('/random', withAuth, async (req, res) => {
 
 
   let randomURL = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${process.env.API_KEY}`
@@ -70,7 +70,7 @@ router.get('/recipe/random', withAuth, async (req, res) => {
     const data = await response.json()
     console.log(data)
 
-    res.render("one-recipe", {
+    res.render("random-recipe", {
       data,
       users,
       logged_in: true
@@ -143,5 +143,7 @@ router.get('/login', (req, res) => {
         }
       });
 
+
+      
     module.exports = router;
     
