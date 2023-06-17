@@ -72,8 +72,11 @@
 
 <section class="action">     
     <h4>Not sure what you want to eat? Let us choose!</h4>
-    <a href="/recipe/random">
     <button class="btn" id="auto-feed">You Feed Me!</button>
-    </a>
+
 </section>
  </div> 
+
+       {{#if logged_in}}
+      <script src="/js/autoFeed.js"></script>
+      {{/if}}
