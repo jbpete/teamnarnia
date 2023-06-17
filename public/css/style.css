@@ -207,6 +207,33 @@ h4 {
     color: var(--dark);
   }
 
+  .details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    text-align: left;
+    justify-content: center;  
+  }
+
+  .instructions {
+    font-size: 18px;
+    font-weight: 200;
+    text-align: left;
+    margin: 20px;
+  }
+
+  .ingredient {
+    font-size: 18px;
+    font-weight: 200;
+  }
+  
+  .food-img-3 {
+    width: 600px;
+  }
+
   .recipe-header {
     color: var(--tertiary);
     font-weight: bold;
@@ -216,6 +243,16 @@ h4 {
     background-color: var(--primary);
     padding: 0.625rem;
     border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+
+  .one-recipe-header {
+    color: var(--primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: none;
+    font-size: 28px;
+    padding: 30px;
   }
   
   .login-card {

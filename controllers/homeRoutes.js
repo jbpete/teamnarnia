@@ -57,7 +57,7 @@ router.get('/recipe/:id', withAuth, async (req, res) => {
 });
    
 router.get('/recipe/random', withAuth, async (req, res) => {
-  let randomURL = `https://api.spoonacular.com/recipes/648084/information?apiKey=${process.env.API_KEY}`
+  let randomURL = `https://api.spoonacular.com/recipes/information?apiKey=${process.env.API_KEY}`
   try {
     const userData = await User.findAll({
     attributes: { exclude: ['password'] }
@@ -136,7 +136,6 @@ router.get('/shopping-list', withAuth, async (req, res) => {
           res.status(500).json(err);
         }
       });
-
     
     module.exports = router;
     
