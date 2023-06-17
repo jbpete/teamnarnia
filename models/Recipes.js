@@ -15,11 +15,11 @@ Recipes.init(
             type: DataTypes.STRING,
             allowNull: false,
           },
-          servings: {
+          instructions: {
             type: DataTypes.STRING,
             allowNull: false,
           },
-          summary: {
+          ingredients: {
             type: DataTypes.STRING,
             allowNull: false,
           },
@@ -27,7 +27,11 @@ Recipes.init(
             type: DataTypes.STRING,
             allowNull: false,
           },
-          instructions: {
+          serving: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
+          recipeImage: {
             type: DataTypes.STRING,
             allowNull: false,
           },
