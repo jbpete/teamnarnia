@@ -1,0 +1,25 @@
+<section class="container">
+    <section class="flex-row justify-center">
+    <h3 class="one-recipe-header">{{data.recipes.[0].title}}</h3>
+    <div class="card-body">
+    <img class="food-img-3" src={{data.recipes.[0].image}} alt="recipe image">
+
+      <h3 class="recipe-header">Ingredients:</h3>
+    <section class="details flex-row justify-center">
+      {{#each data.recipes.[0].extendedIngredients as |ingredient|}}
+      <div class="ingredient">
+        <ul>
+          <li>{{ingredient.original}}</li>
+        </ul>
+      </div> 
+      {{/each}}
+       </section>
+      <h3 class="recipe-header">Instructions:</h3>
+     <p class="instructions">{{data.recipes.[0].instructions}}</p>
+    </div>
+  </section>
+</section>
+  </section>
+
+  
+<script src="/js/autofeed.js"></script> 
