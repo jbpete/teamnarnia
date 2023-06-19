@@ -1,40 +1,41 @@
 <h3 class="sub-header">Add a Recipe</h3>
-<section>
+<p>Want to keep track of your own recipes? Fill out the information below to add your favorite recipes to "My Recipes"</p>
+<section class="form">
     <form>
-        <label for="name">Recipe name:</label>
-        <input type="text" id="name" name="recipe-name"><br />
+        <label class="form-field" for="title">Recipe name:</label><br />
+        <input type="text" id="title" name="recipe-name"><br />
         <br />
 
-        <label for="instructions">Instructions:</label>
+        <label class="form-field" for="instructions">Instructions:</label><br />
         <input type="text" size="50px" id="instructions" name="instructions"><br />
         <br />
 
-        <label for="ingredients">Ingredients:</label>
+        <label class="form-field" for="ingredients">Ingredients:</label><br />
         <input type="text" size="50px" id="ingredients" name="ingredients"><br />
         <br />
         
-        <label>Cuisine:</label> <br />
+        <label class="form-field">Cuisine:</label> <br />
         <input type="radio" id="american" name="cuisine" value="American">
-        <label for="american">American</label><br />
+        <label class="form-field" for="american">American</label><br />
         <input type="radio" id="asian" name="cuisine" value="Asian">
-        <label for="asian">Asian</label><br />
+        <label class="form-field" for="asian">Asian</label><br />
         <input type="radio" id="indian" name="cuisine" value="Indian">
-        <label for="indian">Indian</label><br />
+        <label class="form-field" for="indian">Indian</label><br />
         <input type="radio" id="italian" name="cuisine" value="Italian">
-        <label for="italian">Italian</label><br />
+        <label class="form-field" for="italian">Italian</label><br />
         <input type="radio" id="mediterranean" name="cuisine" value="Mediterranean">
-        <label for="mediterranean">Mediterranean</label><br />
+        <label class="form-field" for="mediterranean">Mediterranean</label><br />
         <input type="radio" id="mexican" name="cuisine" value="Mexican">
-        <label for="mexican">Mexican</label><br />
+        <label class="form-field" for="mexican">Mexican</label><br />
         <br />
         
-        <label for="name">Serving size:</label>
+        <label class="form-field" for="name">Serving size:</label><br />
         <input type="text" id="serving" name="serving-size"><br />
         <br />
 
         {{!add input to upload photo?}}
 
-        <label for="recipeImage">Upload an image of your recipe:</label><br />
+        <label class="form-field" for="recipeImage">Upload an image of your recipe:</label><br />
         <input type="file" id="recipeImage" name="recipeImage">
         <br /><br />
 
