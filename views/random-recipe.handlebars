@@ -17,7 +17,9 @@
        </div>
       <div class="instructions">
       <h4 class="recipe-sub-header">Instructions:</h4>
-     <p class="">{{data.recipes.[0].instructions}}</p>
+    {{#each data.analyzedInstructions.[0].steps as |steps|}}
+     <p class="">{{steps.step}}</p><br>
+     {{/each}}
     </div>
   </section>
   </section>
