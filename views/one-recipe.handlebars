@@ -2,7 +2,6 @@
     <section class="flex-row justify-center">
         <img class="food-img-3" src={{data.image}} alt="recipe image">
         <h3 class="recipe-header">{{data.title}}</h3>
-        <p class="summary">{{data.summary}}</p>
     </section>
     <section class="details"> 
       <div class="ingredients">
@@ -17,7 +16,11 @@
       </div>
       <div class="instructions">
       <h4 class="recipe-sub-header">Instructions:</h4>
-     <p class="">{{data.instructions}}</p>
+     {{#each data.analyzedInstructions.[0].steps as |steps|}}
+      <div class="">
+        <p>{{steps.step}}</p><br />
+        </div>
+      {{/each}}
      <button type="submit" class="btn" id="add-recipe" value="add-recipe">Add to Favorites</button>
     </div>
   </section>
