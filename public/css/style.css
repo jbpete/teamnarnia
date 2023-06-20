@@ -242,6 +242,10 @@ h4 {
   
   .food-img-3 {
     width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
   }
 
   .recipe-header {
